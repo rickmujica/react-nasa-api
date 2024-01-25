@@ -10,6 +10,7 @@ import ErrorPage from "./error-page.jsx";
 import { NasaPhoto } from "./routes/NasaPhoto.jsx";
 import NasaTechTransf from "./routes/NasaTechTransf.jsx";
 import TechDetail from "./routes/TechDetail.jsx";
+import Index from "./routes/index.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
+      {index: true, element: <Index />},
       { path: "/nasa", element: <NasaPhoto />, loader: fetchPhoto },
       { path: "/tech", element: <NasaTechTransf />, loader: fetchTech },
       { path: "/detail", element: <TechDetail /> },

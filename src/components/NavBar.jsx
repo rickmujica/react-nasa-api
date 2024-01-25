@@ -1,17 +1,28 @@
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const navigation = [
-  { name: "APOD", href: "/nasa", current: true },
+  { name: "APOD", href: "/nasa", current: false },
   { name: "TechTransfer", href: "/tech", current: false },
 ];
+
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function NavBar({ children }) {
+
+  const location = useLocation();
+
+// Actualiza el estado 'current' en base a la ruta actual
+const updatedNavigation = navigation.map((item) => ({
+  ...item,
+  current: item.href === location.pathname,
+}));
+
   return (
     <>
       <div className="min-h-full">
@@ -30,7 +41,7 @@ export default function NavBar({ children }) {
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
-                        {navigation.map((item) => (
+                      {updatedNavigation.map((item) => (
                           <Link
                             key={item.name}
                             to={item.href}
