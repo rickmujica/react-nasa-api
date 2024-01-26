@@ -2,7 +2,7 @@
 import { useLocation } from "react-router-dom";
 import { capitalizeWords, stripHtmlTags } from "../helpers/helperFunctions";
 
-function TechDetail(props) {
+function TechDetail() {
   const location = useLocation();
   const dataTech = location.state; // Access the state from location
 

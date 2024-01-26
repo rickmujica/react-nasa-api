@@ -33,11 +33,13 @@ const updatedNavigation = navigation.map((item) => ({
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
+                    <Link to="/">
                       <img
                         className="h-8 w-8"
                         src="../assets/nasa-icon.png"
                         alt="Nasa Logo"
                       />
+                      </Link>
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
